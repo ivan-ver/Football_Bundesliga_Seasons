@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  create_vectorisers:
+    cmd: python3 src/create_vectorisers.py data/data.csv models
+    deps:
+    - path: data/data.csv
+      md5: 9c19566de548ab610a6cfa78e3aa0121
+      size: 1657534
+    - path: src/create_vectorisers.py
+      md5: 4d1db0ee7502b376163274faee12ecda
+      size: 1084
+    params:
+      params.yaml:
+        create_vectorisers.city_vct_name: city_vectoriser
+        create_vectorisers.city_vct_num: 500
+        create_vectorisers.seed: 20170428
+        create_vectorisers.team_vct_name: team_vectoriser
+    outs:
+    - path: models
+      md5: c2bb0b4cc5a0ddc1301511e52c3a9ea8.dir
+      size: 781
+      nfiles: 2

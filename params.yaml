@@ -1,0 +1,7 @@
+create_vectorisers:
+  team_vct_name: team_vectoriser
+  city_vct_name: city_vectoriser
+  city_vct_num: 500
+  seed: 20170428
+
+

@@ -1,0 +1,13 @@
+stages:
+  create_vectorisers:
+    cmd: python3 src/create_vectorisers.py data/data.csv models
+    deps:
+    - data/data.csv
+    - src/create_vectorisers.py
+    params:
+    - create_vectorisers.team_vct_name
+    - create_vectorisers.city_vct_name
+    - create_vectorisers.city_vct_num
+    - create_vectorisers.seed
+    outs:
+    - models
