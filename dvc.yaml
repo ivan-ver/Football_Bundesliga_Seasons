@@ -11,3 +11,15 @@ stages:
     - create_vectorisers.seed
     outs:
     - models
+  prepare:
+    cmd: python3 src/prepare.py models/city_vectoriser models/team_vectoriser data/data.csv
+    deps:
+    - data/data.csv
+    - src/prepare.py
+    - models/city_vectoriser
+    - models/team_vectoriser
+    params:
+    - prepare.seed
+    - prepare.split
+    outs:
+    - data/prepared

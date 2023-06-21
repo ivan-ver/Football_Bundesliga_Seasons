@@ -1,7 +1,10 @@
 create_vectorisers:
   team_vct_name: team_vectoriser
   city_vct_name: city_vectoriser
-  city_vct_num: 500
+  city_vct_num: 40
   seed: 20170428
-
+prepare:
+  to_save_path: data/prepared
+  seed: 20170428
+  split: 0.3
 

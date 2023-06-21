@@ -7,16 +7,40 @@ stages:
       md5: 9c19566de548ab610a6cfa78e3aa0121
       size: 1657534
     - path: src/create_vectorisers.py
-      md5: 4d1db0ee7502b376163274faee12ecda
-      size: 1084
+      md5: d741611469d7bf5c55d63e2ed2f25ad1
+      size: 1112
     params:
       params.yaml:
         create_vectorisers.city_vct_name: city_vectoriser
-        create_vectorisers.city_vct_num: 500
+        create_vectorisers.city_vct_num: 40
         create_vectorisers.seed: 20170428
         create_vectorisers.team_vct_name: team_vectoriser
     outs:
     - path: models
-      md5: c2bb0b4cc5a0ddc1301511e52c3a9ea8.dir
-      size: 781
+      md5: 6d214ce7ab969cde62519546917a8166.dir
+      size: 780
+      nfiles: 2
+  prepare:
+    cmd: python3 src/prepare.py models/city_vectoriser models/team_vectoriser data/data.csv
+    deps:
+    - path: data/data.csv
+      md5: 9c19566de548ab610a6cfa78e3aa0121
+      size: 1657534
+    - path: models/city_vectoriser
+      md5: 3ea213c89300372a58a1eb7b27e470fc
+      size: 390
+    - path: models/team_vectoriser
+      md5: ffb9340e46f5550ba39f8c6830f05114
+      size: 390
+    - path: src/prepare.py
+      md5: 2154f2dab343884e7a732b30884aff0b
+      size: 4154
+    params:
+      params.yaml:
+        prepare.seed: 20170428
+        prepare.split: 0.3
+    outs:
+    - path: data/prepared
+      md5: ff9bb806ab044538b6d98d67711b2914.dir
+      size: 8815094
       nfiles: 2
