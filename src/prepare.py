@@ -135,4 +135,4 @@ test_df = to_std(test_df, std_columns)
 
 
 train_df.to_csv(os.path.join("data", "prepared", "train.csv"), index=False)
-train_df.to_csv(os.path.join("data", "prepared", "test.csv"), index=False)
+test_df.to_csv(os.path.join("data", "prepared", "test.csv"), index=False)
