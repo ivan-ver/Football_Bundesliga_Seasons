@@ -23,3 +23,26 @@ stages:
     - prepare.split
     outs:
     - data/prepared
+  train:
+    cmd: python3 src/train.py data/prepared/train.csv model.pkl
+    deps:
+    - data/prepared/train.csv
+    - src/train.py
+    params:
+    - train.seed
+    outs:
+    - model.pkl
+  evaluate:
+    cmd: python3 src/evaluate.py data/prepared model.pkl
+    deps:
+    - data/prepared
+    - model.pkl
+    - src/evaluate.py
+    outs:
+    - eval/live/plots:
+        cache: false
+    - eval/prc:
+        cache: false
+    metrics:
+    - eval/live/metrics.json:
+        cache: false
